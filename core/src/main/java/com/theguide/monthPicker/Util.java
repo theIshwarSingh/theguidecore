@@ -3,7 +3,7 @@ package com.theguide.monthPicker;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class Util {
+class Util {
 
     /**
      * Gets a calendar for locale bootstrapped with the value of a given calendar.

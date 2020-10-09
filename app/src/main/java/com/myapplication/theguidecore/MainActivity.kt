@@ -6,7 +6,6 @@ import androidx.databinding.DataBindingUtil
 import com.myapplication.theguidecore.baseObservable.AdapterBaseObservable
 import com.myapplication.theguidecore.baseObservable.StudentDetailBaseObservable
 import com.myapplication.theguidecore.databinding.ActivityMainBinding
-import com.theguide.monthPicker.MonthYearPickerDialog
 import com.theguide.monthPicker.MonthYearPickerDialogFragment
 import java.util.*
 

@@ -1,6 +1,6 @@
 package com.theguide.monthPicker;
 
-public enum MonthFormat {
+enum MonthFormat {
     /**
      * Gets short month strings. For example: "Jan", "Feb", etc.
      */

@@ -6,7 +6,7 @@ import java.text.DateFormatSymbols;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class Presenter implements NumberPicker.OnValueChangeListener {
+class Presenter implements NumberPicker.OnValueChangeListener {
     static final int DEFAULT_START_YEAR = 1900;
     private static final int DEFAULT_END_YEAR = 2100;
     private Calendar tempDate;

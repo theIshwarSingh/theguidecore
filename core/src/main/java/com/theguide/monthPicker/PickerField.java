@@ -1,6 +1,6 @@
 package com.theguide.monthPicker;
 
-public enum PickerField {
+enum PickerField {
     YEAR,
     MONTH
 }

@@ -15,7 +15,7 @@ import com.theguide.R;
 import java.text.DateFormatSymbols;
 import java.util.Locale;
 
-public class MonthYearPickerDialog extends AlertDialog implements DialogInterface
+class MonthYearPickerDialog extends AlertDialog implements DialogInterface
         .OnClickListener, Presenter.OnDateChangedListener {
 
     private static final String YEAR = "year";

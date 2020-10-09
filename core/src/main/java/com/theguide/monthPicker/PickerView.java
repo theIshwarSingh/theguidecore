@@ -8,7 +8,7 @@ import com.theguide.R;
 import java.util.Arrays;
 import java.util.Calendar;
 
-public class PickerView implements IPickerView {
+class PickerView implements IPickerView {
     private final NumberPicker monthSpinner;
     private final NumberPicker yearSpinner;
     private String[] shortMonths;
