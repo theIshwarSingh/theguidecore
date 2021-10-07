@@ -1,4 +1,4 @@
-package com.myapplication.theguideschool.customViews
+package com.theguide.dataBoundAdapter
 
 import com.theguide.dataBoundAdapter.DataBoundViewHolder
 

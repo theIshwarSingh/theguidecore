@@ -17,12 +17,13 @@ package com.theguide.dataBoundAdapter
  * limitations under the License.
  */
 
+import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.databinding.ViewDataBinding
 import androidx.databinding.library.BuildConfig
+import androidx.recyclerview.widget.DiffUtil
 import java.util.*
 import kotlin.collections.ArrayList
-import com.myapplication.theguideschool.customViews.DynamicBinding
 import com.theguide.BR
 
 open class MultiTypeDataBoundAdapter(private val mActionCallback: ActionCallback?, vararg items: Any) : BaseDataBoundAdapter<ViewDataBinding>() {
@@ -114,9 +115,30 @@ open class MultiTypeDataBoundAdapter(private val mActionCallback: ActionCallback
         notifyItemRangeRemoved(0, size)
     }
 
+    fun observingItem(vararg items:Any) {
+        val differResult = DiffUtil.calculateDiff(diffUtilsCallBack(items, mItems))
+        differResult.dispatchUpdatesTo(this)
+        mItems.addAll(items)
+    }
+
+    private fun  diffUtilsCallBack( oldList :Array<out Any> ,  newList :ArrayList<Any>) = object:DiffUtil.Callback(){
+
+        override fun getOldListSize(): Int = oldList.size
+
+        override fun getNewListSize(): Int = newList.size
+
+        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =  oldList[oldItemPosition] == newList[newItemPosition]
+
+        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldList[oldItemPosition] == newList[newItemPosition]
+        }
+    }
+
     /**
      * Class that all action callbacks must extend for the adapter callback.
      */
-    interface ActionCallback
+    interface ActionCallback{
+
+    }
 
 }

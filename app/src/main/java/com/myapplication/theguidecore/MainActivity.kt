@@ -7,6 +7,7 @@ import com.myapplication.theguidecore.baseObservable.AdapterBaseObservable
 import com.myapplication.theguidecore.baseObservable.StudentDetailBaseObservable
 import com.myapplication.theguidecore.databinding.ActivityMainBinding
 import com.theguide.monthPicker.MonthYearPickerDialogFragment
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -27,24 +28,24 @@ class MainActivity : AppCompatActivity() {
     private fun setupview(binding: ActivityMainBinding) {
         binding.data = AdapterBaseObservable(null).apply {
             adapter.addItem(StudentDetailBaseObservable("1", "ABC"))
+            adapter.observingItem(StudentDetailBaseObservable("2", "AqweBC"))
+            adapter.observingItem(StudentDetailBaseObservable("2", "AqweBC"))
+            adapter.observingItem(StudentDetailBaseObservable("3", "qwe"))
+            adapter.observingItem(StudentDetailBaseObservable("4", "ABqwedfC"))
+            adapter.observingItem(StudentDetailBaseObservable("5", "AwqewqBC"))
         }
-        val calendar = Calendar.getInstance()
-        currentYear = calendar.get(Calendar.YEAR)
-        yearSelected = currentYear
-        monthSelected = calendar.get(Calendar.MONTH)
-        binding.date.setOnClickListener {
-          val dialog = MonthYearPickerDialogFragment.getInstance(
-              monthSelected,
-              yearSelected, null)
-              dialog.setOnDateSetListener { year, monthOfYear ->
-                  monthSelected = monthOfYear
-                  yearSelected = year
-                  binding.date.text = "Month ${monthSelected+1} Year : $yearSelected"
-              }
-            dialog.show(supportFragmentManager, null)
+        search_close_btn.setOnClickListener {
+            binding.data = AdapterBaseObservable(null).apply {
+                for (i in 0 until 2){
+                    adapter.observingItem(StudentDetailBaseObservable("7", "ABC"))
+                    adapter.observingItem(StudentDetailBaseObservable("8", "ABC"))
+                        adapter.observingItem(StudentDetailBaseObservable("9", "ABC"))
+                    adapter.observingItem(StudentDetailBaseObservable("10", "ABC"))
+                }
+            }
+
         }
     }
-
 
 
 }
