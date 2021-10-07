@@ -118,6 +118,7 @@ open class MultiTypeDataBoundAdapter(private val mActionCallback: ActionCallback
     fun observingItem(vararg items:Any) {
         val differResult = DiffUtil.calculateDiff(diffUtilsCallBack(items, mItems))
         differResult.dispatchUpdatesTo(this)
+        mItems.clear()
         mItems.addAll(items)
     }
 
