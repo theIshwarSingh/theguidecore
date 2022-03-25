@@ -26,7 +26,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 import com.theguide.BR
 
-open class MultiTypeDataBoundAdapter(private val mActionCallback: ActionCallback?, vararg items: Any) : BaseDataBoundAdapter<ViewDataBinding>() {
+open class MultiTypeDataBoundAdapter(private val mActionCallback: ActionCallback?, vararg items: Any, private val isViewHolderRecyclable:Boolean = false) : BaseDataBoundAdapter<ViewDataBinding>() {
 
     private val mItems = ArrayList<Any>()
 
@@ -42,6 +42,7 @@ open class MultiTypeDataBoundAdapter(private val mActionCallback: ActionCallback
         holder.binding.setVariable(BR.data, mItems[position])
         // this will work even if the layout does not have a callback parameter
         holder.binding.setVariable(BR.callback, mActionCallback)
+        holder.setIsRecyclable(isViewHolderRecyclable)
         if (item is DynamicBinding) {
             item.bind(holder)
         }
