@@ -26,7 +26,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 import com.theguide.BR
 
-open class MultiTypeDataBoundAdapter(private val mActionCallback: ActionCallback?, vararg items: Any, private val isViewHolderRecyclable:Boolean = false) : BaseDataBoundAdapter<ViewDataBinding>() {
+open class MultiTypeDataBoundAdapter(private val mActionCallback: ActionCallback?, vararg items: Any, private val isViewHolderRecyclable:Boolean = true) : BaseDataBoundAdapter<ViewDataBinding>() {
 
     private val mItems = ArrayList<Any>()
 
